@@ -9,9 +9,7 @@
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Core theme CSS (includes Bootstrap)-->
-        {{-- <link href="css/styles.css" rel="stylesheet" /> --}}
         <link href="{{ asset('css/styles.css') }}" rel="stylesheet" />
-
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -29,9 +27,9 @@
                 </div>
             </div>
         </nav>
-
+ 
         @yield('content')
-
+ 
         <!-- Footer-->
         <footer class="py-5 bg-dark">
             <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2023</p></div>
