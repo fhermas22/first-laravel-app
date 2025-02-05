@@ -17,7 +17,8 @@ Route::get('/second', function() {
 // $url = route('home');
 // return redirect()->route('home');
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index']) -> name('home');
+Route::get('/',
+[App\Http\Controllers\HomeController::class, 'index']) -> name('home');
 
 Route::get('/about', function() {
     return view('about');
@@ -26,3 +27,6 @@ Route::get('/about', function() {
 Route::get('/contact', function() {
     return view('contact');
 }) -> name('contact');;
+
+Route::get('/category/{id}',
+[App\Http\Controllers\CategoryController::class, 'show']) -> name('category.show');
