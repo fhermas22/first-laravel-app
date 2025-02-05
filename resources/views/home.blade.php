@@ -1,7 +1,7 @@
-@extends('layouts.app')  
- 
-@section('content') 
- 
+@extends('layouts.app')
+
+@section('content')
+
         <!-- Page header with logo and tagline-->
         <header class="py-5 bg-light border-bottom mb-4">
             <div class="container">
@@ -28,19 +28,21 @@
                     </div>
                     <!-- Nested row for non-featured blog posts-->
                     <div class="row">
+                        @foreach ($posts as $post)
                         <div class="col-lg-6">
                             <!-- Blog post-->
                             <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
-                                    <div class="small text-muted">January 1, 2023</div>
-                                    <h2 class="card-title h4">Post Title</h2>
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
+                                    <div class="small text-muted">{{ $post -> created_at}}</div>
+                                    <h2 class="card-title h4">{{ $post -> title }}</h2>
+                                    <p class="card-text">{{ $post -> text }}</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
                             </div>
+
                             <!-- Blog post-->
-                            <div class="card mb-4">
+                            {{-- <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">January 1, 2023</div>
@@ -48,10 +50,11 @@
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
+                        @endforeach
                         <div class="col-lg-6">
-                            <!-- Blog post-->
+                            {{-- <!-- Blog post-->
                             <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
@@ -60,9 +63,9 @@
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla.</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Blog post-->
-                            <div class="card mb-4">
+                            {{-- <div class="card mb-4">
                                 <a href="#!"><img class="card-img-top" src="https://dummyimage.com/700x350/dee2e6/6c757d.jpg" alt="..." /></a>
                                 <div class="card-body">
                                     <div class="small text-muted">January 1, 2023</div>
@@ -70,7 +73,7 @@
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam.</p>
                                     <a class="btn btn-primary" href="#!">Read more →</a>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     <!-- Pagination-->
@@ -106,16 +109,9 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">Web Design</a></li>
-                                        <li><a href="#!">HTML</a></li>
-                                        <li><a href="#!">Freebies</a></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled mb-0">
-                                        <li><a href="#!">JavaScript</a></li>
-                                        <li><a href="#!">CSS</a></li>
-                                        <li><a href="#!">Tutorials</a></li>
+                                        @foreach ($noscategories as $category)
+                                            <li><a href="#">{{ $category -> name}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -129,4 +125,4 @@
                 </div>
             </div>
         </div>
-@endsection 
+@endsection
