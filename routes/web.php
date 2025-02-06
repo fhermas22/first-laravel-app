@@ -21,7 +21,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']) -> name('
 
 Route::get('/about', function() {
     return view('about');
-}) -> name('about');;
+}) -> name('about');
 
 Route::get('/contact', function() {
     return view('contact');
